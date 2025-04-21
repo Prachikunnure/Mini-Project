@@ -1,0 +1,116 @@
+body{
+font-family:'Plus Jakarta Sans','sans serif'!important;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+.container{
+    flex:1;
+}
+.navbar{
+    height:5rem;
+   background-color: white;
+}
+.fa-compass{
+    color:#fe424d;
+    font-size:2rem;
+}
+ /* providing to imp then it will override custome changes than bootstrap. */
+.nav-link{
+    color:#222222 !important; 
+}
+
+.f-info-links a{
+ text-decoration: none;
+ color:#222222
+} 
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color:red
+   } 
+
+   .f-info-links ,
+   .f-info-social,
+   .f-info-brand{
+    width:100%;
+    /* vertical-align: middle; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   
+   .f-info-social i{
+    margin-right:1rem;
+    font-size:1.2rem;
+   }
+
+   .f-info{
+    /* dispaly:flex all in one line */
+    display:flex;
+    height:8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align:center;
+   }
+
+   /* cards */
+   .listing-card{
+       border:none !important ;
+       margin-bottom:2rem;
+   }
+
+   .card-img-top{
+    border-radius: 0.8rem !important;
+
+/* card ki jitni bhi width hai vo occupie karega */
+    width:100% !important; 
+    /* this is for to remove cards custome styleing and applying our custom styling */
+    object-fit: cover;
+   }
+
+   .card-body{
+    padding:0 !important;
+   }
+   .card-text{
+    font-weight:400 ;
+   }
+   .listingLink{
+    text-decoration: none;
+   }
+   /* card effect */
+   .card-img-overlay{
+    opacity:0;
+   }
+   .card-img-overlay:hover{
+    opacity:0.2;
+    background-color: white;
+   }
+
+   /* new page */
+   .add-btn{
+    background-color: #1d0daf !important;
+    border:none !important
+   }
+
+   /* add new  */
+   .edit-btn{
+    background-color: #1e0dbb !important;
+    border:none !important
+   }
+   .show-img{
+    height:30vh;
+   }
+
+   .btns{
+    display: flex;
+   }
+   .show-card{
+    padding-left:0;
+    padding-right:0;
+   }
+
+   
