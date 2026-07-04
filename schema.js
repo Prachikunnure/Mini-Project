@@ -22,9 +22,19 @@ module.exports.reviewSchema = Joi.object({
 
 
 
+
+// Define Joi validation for the booking schema
 module.exports.bookingSchema = Joi.object({
-   booking: Joi.object({
-      bookingDate: Joi.date().required(), 
-      duration: Joi.number().required()
-   }).required()
+  booking: Joi.object({
+    // Ensures `userId` is provided as a string (ObjectId in string form)
+    // Ensures `villaId` is provided as a string (ObjectId in string form)
+    checkIn: Joi.date().required(), // Validates the `checkIn` date
+    checkOut: Joi.date().required(), // Validates the `checkOut` date
+    guests: Joi.number().min(1).required(), // Validates the number of guests (at least 1)
+   
+    // bookingStatus: Joi.string()
+    //   .valid("Pending", "Confirmed", "Cancelled")
+    //   .default("Pending"), // Ensures `bookingStatus` has valid values and defaults to 'Pending'
+  
+  }).required(), // Makes the `booking` object mandatory
 });

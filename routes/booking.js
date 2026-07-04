@@ -1,16 +1,28 @@
-const listing = require('../models/listing'); 
-const Booking = require('../models/booking'); 
-
-const express = require('express');
-const router = express.Router({mergeParams:true});//merging with parent params
-
-const { isLoggedin, validatebooking } = require('../middleware');
-const WrapAsync = require('../utils/WrapAsync');
-const ExpressError = require("../utils/ExtendsError.js")
-const { listingSchema ,bookingSchema} =require("../schema.js");
+const express = require("express");
+const router = express.Router();
+const WrapAsync = require("../utils/WrapAsync.js");
+const { isLoggedin, validatebooking } = require("../middleware.js");
 const bookingController = require("../controllers/booking.js");
 
-router.get("/booking", isLoggedin,  WrapAsync(bookingController.getBook));
-router.post("/", isLoggedin,validatebooking,  WrapAsync(bookingController.postBook));
+router.get("/", isLoggedin, WrapAsync(bookingController.indexBookings));
 
- module.exports = router
+router.get(
+  "/new/:listingId",
+  isLoggedin,
+  WrapAsync(bookingController.renderNewForm)
+);
+
+router.post(
+  "/:listingId",
+  isLoggedin,
+  validatebooking,
+  WrapAsync(bookingController.createBooking)
+);
+
+router.delete(
+  "/:bookingId",
+  isLoggedin,
+  WrapAsync(bookingController.cancelBooking)
+);
+
+module.exports = router;

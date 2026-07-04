@@ -22,10 +22,10 @@ const user=require("./models/user.js");
  const path=require("path");
 const Listing=require("./models/listing.js");
 const WrapAsync=require("./utils/WrapAsync.js");
- const ExpressError = require("./utils/ExtendsError.js")
+const ExpressError = require("./utils/ExtendsError.js")
 const { listingSchema ,reviewSchema,bookingSchema} =require("./schema.js")
 const Review = require("./models/review.js");
-const booking=require("./models/booking.js");
+// const booking=require("./models/booking.js");
 
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter= require("./routes/review.js");
@@ -107,7 +107,7 @@ app.use((req,res,next)=>
  app.use("/listing",listingsRouter);
  app.use("/listing/:id/reviews",reviewsRouter);
  app.use("/",userRouter);
- app.use("/listing/:id",bookingRouter);
+ app.use("/bookings", bookingRouter);
 
 app.all("*",(req,res,next)=>
 {

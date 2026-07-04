@@ -25,7 +25,7 @@ module.exports.showListing=async (req, res) => {
     req.flash("error","Listing does not found");
     res.redirect("/listing");
    }
-   console.log("with population",listing);    
+//    console.log("with population",listing);    
     res.render("listings/show.ejs", { listing });
 
 };
@@ -66,7 +66,7 @@ module.exports.editRoute=async (req, res) => {
 module.exports.updateRoute=async (req, res) => {
     let { id } = req.params;
     let listing=await Listing.findByIdAndUpdate(id, {...req.body.listing})
-   if(typeof req.file!=="undefined"){
+    if(typeof req.file!=="undefined"){
     let url= req.file.path;
     let filename= req.file.filename;
     listing.image={url,filename};
@@ -77,7 +77,7 @@ module.exports.updateRoute=async (req, res) => {
     res.redirect(`/listing/${id}`);
 
 }
-// Delete The route
+// Delete The routec
 module.exports.deleteroute=async (req, res) =>
 {
     let { id } = req.params;

@@ -33,8 +33,7 @@ const initDB = async () => {
 
   // Accessing the owner property from the Listing collection
  
- 
-};
+ };
 
 
 
